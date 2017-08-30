@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/office-ui-fabric-js/dist/css/fabric.min.css"/>
+    <link rel="stylesheet" href="bower_components/office-ui-fabric-js/dist/css/fabric.components.min.css"/>
+</head>
+<body>
+
+<div class="container">
+    <h3>Components</h3>
+    <div data-bind="foreach: people">
+        <div class="row">
+            <div class="col-sm-3">
+                <ui-text-field params="label: 'text field', value: name, isView: $root.isView"></ui-text-field>
+            </div>
+            <div class="col-sm-3">
+                <ui-dropdown params="label: 'dropdown', value: 'test', options: items, isView: $root.isView"></ui-dropdown>
+            </div>
+        </div>
+    </div>
+    <label><input type="checkbox" data-bind="checked: isView"> is view </label>
+    <ui-button data-bind="click: addItemForAll" params="text: 'add options for all', mode:'primary'"></ui-button>
+</div>
+
+<script src="bower_components/knockout/dist/knockout.js"></script>
+<script src="bower_components/knockout/dist/knockout.debug.js"></script>
+<script src="bower_components/office-ui-fabric-js/dist/js/fabric.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="scripts.js"></script>
+
+<script>
+    function AppViewModel() {
+        var self = this;
+
+        self.people = ko.observableArray([
+            {name: 'Bert', items: ko.observableArray(['test', 'test1', 'test2'])},
+            {name: 'Charles', items: ko.observableArray(['test2', 'test4', 'test4'])},
+            {name: 'Denise', items: ko.observableArray(['test3', 'test4', 'test6'])}
+        ]);
+
+        self.isView = ko.observable(false);
+
+        self.addPerson = function () {
+            self.people.push({name: "New at " + new Date()});
+        };
+
+        self.removePerson = function () {
+            self.people.remove(this);
+        };
+
+        self.addItemForAll = function () {
+            ko.utils.arrayForEach(self.people(), function (human) {
+                human.items.push('new item');
+            });
+        };
+
+        self.todo = function(data) {
+            console.log('todo ' + data);
+        }
+    }
+
+    ko.applyBindings(new AppViewModel());
+</script>
+
+</body>
+</html>
