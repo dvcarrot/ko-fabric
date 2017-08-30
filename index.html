@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="bower_components/office-ui-fabric-js/dist/css/fabric.min.css"/>
     <link rel="stylesheet" href="bower_components/office-ui-fabric-js/dist/css/fabric.components.min.css"/>
+    <script src="bower_components/knockout/dist/knockout.js"></script>
+    <script src="bower_components/knockout/dist/knockout.debug.js"></script>
+    <script src="bower_components/office-ui-fabric-js/dist/js/fabric.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="build/scripts.js"></script>
 </head>
 <body>
 
@@ -26,12 +31,6 @@
     <label><input type="checkbox" data-bind="checked: isView"> is view </label>
     <ui-button data-bind="click: addItemForAll" params="text: 'add options for all', mode:'primary'"></ui-button>
 </div>
-
-<script src="bower_components/knockout/dist/knockout.js"></script>
-<script src="bower_components/knockout/dist/knockout.debug.js"></script>
-<script src="bower_components/office-ui-fabric-js/dist/js/fabric.min.js"></script>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="scripts.js"></script>
 
 <script>
     function AppViewModel() {
