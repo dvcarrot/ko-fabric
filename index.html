@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="bower_components/office-ui-fabric-js/dist/css/fabric.min.css"/>
     <link rel="stylesheet" href="bower_components/office-ui-fabric-js/dist/css/fabric.components.min.css"/>
-    <script src="bower_components/knockout/dist/knockout.js"></script>
-    <script src="bower_components/knockout/dist/knockout.debug.js"></script>
-    <script src="bower_components/office-ui-fabric-js/dist/js/fabric.min.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="build/vendors.js"></script>
     <script src="build/scripts.js"></script>
 </head>
 <body>
@@ -21,14 +18,25 @@
     <div data-bind="foreach: people">
         <div class="row">
             <div class="col-sm-3">
-                <ui-text-field params="label: 'text field', value: name, isView: $root.isView"></ui-text-field>
-            </div>
-            <div class="col-sm-3">
                 <ui-dropdown params="label: 'dropdown', value: 'test', options: items, isView: $root.isView"></ui-dropdown>
             </div>
         </div>
     </div>
     <label><input type="checkbox" data-bind="checked: isView"> is view </label>
+
+    <h3>Bindings and jQuery</h3>
+    <div data-bind="foreach: people">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="ms-Dropdown" tabindex="0" data-bind="widget: 'Dropdown', listen: items">
+                    <label class="ms-Label">label</label>
+                    <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
+                    <select class="ms-Dropdown-select" data-bind="options: items, value: name"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <ui-button data-bind="click: addItemForAll" params="text: 'add options for all', mode:'primary'"></ui-button>
 </div>
 
@@ -58,7 +66,7 @@
             });
         };
 
-        self.todo = function(data) {
+        self.todo = function (data) {
             console.log('todo ' + data);
         }
     }
