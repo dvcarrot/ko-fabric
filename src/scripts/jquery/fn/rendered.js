@@ -1,3 +1,7 @@
+/**
+ * Обертка $.rendered функции
+ */
+
 (function ($) {
 
     $.fn.rendered = function () {

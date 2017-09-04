@@ -1,3 +1,7 @@
+/**
+ * Создаёт deferred, resolve считается изменение dom
+ */
+
 (function ($) {
 
     $.rendered = function (element) {

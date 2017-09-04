@@ -1,3 +1,7 @@
+/**
+ * UI бинюинг контейнер
+ */
+
 (function (ko, fabric) {
 
     ko.bindingHandlers.uiDropdown = {

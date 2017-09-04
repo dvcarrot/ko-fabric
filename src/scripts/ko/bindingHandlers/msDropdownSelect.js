@@ -1,3 +1,7 @@
+/**
+ * Вспомогательный биндинг для компонентов
+ */
+
 (function (ko, fabric, $) {
 
     ko.bindingHandlers.msDropdownSelect = {

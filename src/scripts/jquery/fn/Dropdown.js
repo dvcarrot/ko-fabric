@@ -1,3 +1,7 @@
+/**
+ * jquery widget
+ */
+
 (function ($, fabric) {
 
     $.fn.Dropdown = function () {
