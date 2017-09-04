@@ -24,7 +24,7 @@
     </div>
     <label><input type="checkbox" data-bind="checked: isView"> is view </label>
 
-    <h3>Bindings and jQuery</h3>
+    <h3>Bindings jQuery widgets</h3>
     <div data-bind="foreach: people">
         <div class="row">
             <div class="col-sm-3">
@@ -33,6 +33,16 @@
                     <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
                     <select class="ms-Dropdown-select" data-bind="options: items, value: name"></select>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Bindings UI</h3>
+
+    <div data-bind="foreach: people">
+        <div class="row">
+            <div class="col-sm-3">
+                <div data-bind="uiDropdown: items"></div>
             </div>
         </div>
     </div>
